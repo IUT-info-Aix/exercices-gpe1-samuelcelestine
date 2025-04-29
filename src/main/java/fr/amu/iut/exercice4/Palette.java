@@ -1,6 +1,7 @@
 package fr.amu.iut.exercice4;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -49,10 +50,14 @@ public class Palette extends Application {
         panneau = new Pane();
         root.setCenter(panneau);
 
+        label = new Label();
+        root.setTop(label);
+
         // Ajout d'un bouton avec du texte
         Button button = new Button("Vert");
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             panneau.setStyle("-fx-background-color: #56c90d; ");
+            label.setText("Clique Vert :" + ++nbVert);
         });
         hbox.getChildren().add( button );
         hbox.setAlignment(Pos.BOTTOM_CENTER);
@@ -62,6 +67,7 @@ public class Palette extends Application {
         hbox.getChildren().add( button1 );
         button1.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             panneau.setStyle("-fx-background-color: #ff0000; ");
+            label.setText("Clique Rouge :" + ++nbRouge);
         });
 
         // Ajout d'un bouton avec du texte
@@ -69,11 +75,19 @@ public class Palette extends Application {
         hbox.getChildren().add( button2 );
         button2.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             panneau.setStyle("-fx-background-color: #0c8ebd; ");
+            label.setText("Clique Bleu :" + ++nbBleu);
         });
 
+        HBox.setMargin(button, new Insets(5));
+        HBox.setMargin(button1, new Insets(5));
+        HBox.setMargin(button2, new Insets(5));
+
+        panneau.setPrefHeight(200);
+        panneau.setPrefWidth(400);
+
         primaryStage.setTitle("");
-        primaryStage.setWidth(400);
-        primaryStage.setHeight(400);
+        //primaryStage.setWidth(400);
+        //primaryStage.setHeight(400);
         primaryStage.show();
     }
 }
