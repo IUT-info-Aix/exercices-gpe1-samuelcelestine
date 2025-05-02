@@ -7,4 +7,6 @@ open module tp.intro.javafx {
 
     exports com.example.partie1;
 
+    exports com.example.partie3;
 }
+
