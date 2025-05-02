@@ -6,16 +6,22 @@
 <?import javafx.scene.text.*?>
 
 <GridPane alignment="CENTER" hgap="100" styleClass="root"  vgap="20" fx:controller="fr.amu.iut.exercice8.LoginControl"
-                             xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+                             xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="/exercice8/Login.css">
     <Text id="welcome-text" text="Welcome" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
 
     <Label text="User Id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
 <!--   à compléter par un TextField et un Label -->
 
     <PasswordField fx:id="pwd" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <TextField fx:id="click" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
 <!--  à compléter pour les boutons -->
+   <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+      <Button fx:id="Ok" style="-fx-background-color: #14d3b6;" text="Ok" onAction="#okClicked"/>
+      <Button fx:id="Cancel" style="-fx-background-color: #14d3b6;" text="Cancel" onAction="#cancelClicked" />
+   </HBox>
 
    <columnConstraints>
       <ColumnConstraints maxWidth="103.0" minWidth="63.0" prefWidth="83.0" />
