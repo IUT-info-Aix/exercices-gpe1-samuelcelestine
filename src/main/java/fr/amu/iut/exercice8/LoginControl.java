@@ -20,9 +20,10 @@ public class LoginControl extends GridPane {
     @FXML
     private void okClicked() {
 
-        }
+    }
 
     @FXML
     private void cancelClicked() {
 
+    }
 }
