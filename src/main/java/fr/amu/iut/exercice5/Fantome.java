@@ -23,11 +23,11 @@ public class Fantome extends Personnage {
 
         oeilGauche = new Circle(6, 6, 2, Color.WHITE);
         //regarde vers la droite
-        retineGauche = new Circle(oeilGauche.getCenterX() + 1, 6, 1, Color.BLACK);
+        retineGauche = new Circle(oeilGauche.getCenterX() + 0, 6, 1, Color.BLACK);
 
         oeilDroit = new Circle(14, 6, 2, Color.WHITE);
         //regarde vers la droite
-        retineDroite = new Circle(oeilDroit.getCenterX() + 1, 6, 1, Color.BLACK);
+        retineDroite = new Circle(oeilDroit.getCenterX() + 0, 6, 1, Color.BLACK);
 
 
         super.getChildren().add(basCorps);
@@ -39,24 +39,37 @@ public class Fantome extends Personnage {
 
     @Override
     public void deplacerAGauche() {
-
-
+        super.deplacerAGauche();
+        retineGauche.setCenterX(oeilGauche.getCenterX() -1);
+        retineGauche.setCenterY(oeilGauche.getCenterY());
+        retineDroite.setCenterX(oeilDroit.getCenterX() -1);
+        retineDroite.setCenterY(oeilDroit.getCenterY());
     }
 
     @Override
     public void deplacerADroite(double largeurJeu) {
-
+        super.deplacerADroite(largeurJeu);
+        retineDroite.setCenterX(oeilDroit.getCenterX() +1);
+        retineDroite.setCenterY(oeilDroit.getCenterY());
+        retineGauche.setCenterX(oeilGauche.getCenterX() +1);
+        retineGauche.setCenterY(oeilGauche.getCenterY());
     }
 
     @Override
     public void deplacerEnBas(double hauteurJeu) {
-
+        super.deplacerEnBas(hauteurJeu);
+        retineDroite.setCenterX(oeilDroit.getCenterX());
+        retineDroite.setCenterY(oeilDroit.getCenterY() +1);
+        retineGauche.setCenterX(oeilGauche.getCenterX());
+        retineGauche.setCenterY(oeilGauche.getCenterY() +1);
     }
 
     @Override
     public void deplacerEnHaut() {
-
+        super.deplacerEnHaut();
+        retineDroite.setCenterX(oeilDroit.getCenterX());
+        retineDroite.setCenterY(oeilDroit.getCenterY() -1);
+        retineGauche.setCenterX(oeilGauche.getCenterX());
+        retineGauche.setCenterY(oeilGauche.getCenterY() -1);
     }
-
-
 }
