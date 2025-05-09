@@ -10,7 +10,7 @@ public class CalculatorView extends Pane {
     public CalculatorView() throws IOException {
 
         // chargement des composants de la fenêtre
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CalculatorView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/CalculatorView.fxml"));
         VBox root = loader.load();
 
         // Ajout des composants dans la fenêtre
