@@ -14,18 +14,15 @@ public class MainPersonnes {
 
     public static void main(String[] args) {
 
-        // Pour écouter les changements internes comme ageProperty()
         lesPersonnes = FXCollections.observableArrayList(
                 personne -> new Observable[]{personne.ageProperty()}
         );
 
-        // Premier listener : ajout et suppression + écoute de l'âge
         unChangementListener = change -> {
             while (change.next()) {
                 if (change.wasAdded()) {
                     for (fr.amu.iut.exercice3.Personne p : change.getAddedSubList()) {
                         System.out.println("Ajouté : " + p.getNom());
-                        // Écouter le changement d'âge
                         p.ageProperty().addListener((obs, oldVal, newVal) ->
                                 System.out.println(p.getNom() + " a maintenant " + newVal + " ans")
                         );
@@ -39,7 +36,6 @@ public class MainPersonnes {
             }
         };
 
-        // Listener pour plusieurs changements à la fois
         plusieursChangementsListener = change -> {
             System.out.println("Début des changements :");
             while (change.next()) {
@@ -60,11 +56,8 @@ public class MainPersonnes {
             System.out.println("Fin des changements.\n");
         };
 
-        // Choisir quel listener utiliser
-        lesPersonnes.addListener(unChangementListener); // Utilise ceci pour question1, 2, 3
-        // lesPersonnes.addListener(plusieursChangementsListener); // Utilise ceci pour question5
+        lesPersonnes.addListener(unChangementListener);
 
-        // Appel de la question à tester
         question3();
         // question5();
     }

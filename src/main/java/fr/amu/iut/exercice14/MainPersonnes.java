@@ -73,8 +73,7 @@ public class MainPersonnes {
         });
         nbParisiens.bind(calculnbParisiens);
 
-// Lancer les tests de la question 2
-//        question2();
+       question2();
     }
 
     public static void question1() {
